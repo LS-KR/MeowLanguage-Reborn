@@ -54,7 +54,8 @@ body {
 }
 
 #app {
-  font-family: 'PingFangSC-Medium', 'PingFang SC', 'Helvetica Neue', "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Helvetica, Arial, sans-serif;
+  font-family: 'PingFangSC-Medium', 'PingFang SC', 'Helvetica Neue', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Helvetica, Arial, sans-serif;
 }
 
 .nav {
@@ -148,15 +149,15 @@ body {
   }
 }
 
-.placeholder{
+.placeholder {
   display: block;
   width: 100%;
   height: 70px;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   .nav {
-    background: hsl(342, 28%, 21%);;
+    background: hsl(342, 28%, 21%);
   }
 
   body {

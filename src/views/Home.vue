@@ -4,7 +4,7 @@ import { Component, Vue } from 'vue-facing-decorator'
 
 @Component({})
 export default class Home extends Vue {
-  original = ""
+  original = ''
   encoded = meowEncode(this.original)
 
   encode() {
@@ -20,14 +20,20 @@ export default class Home extends Vue {
 
 <template>
   <div class="encodes">
-    <textarea v-model="original" v-on:change="encode()" v-on:keydown="encode()" v-on:keyup="encode()" placeholder="Type something..."></textarea>
-    <p>{{encoded}}</p>
+    <textarea
+      v-model="original"
+      v-on:change="encode()"
+      v-on:keydown="encode()"
+      v-on:keyup="encode()"
+      placeholder="Type something..."
+    ></textarea>
+    <p>{{ encoded }}</p>
     <button class="ripple" v-on:click="copy()">复制</button>
   </div>
 </template>
 
 <style lang="scss">
-@import "@/css/fonts.css";
+@import '@/css/fonts.css';
 
 .encodes {
   width: calc(100% - 4rem);
@@ -59,7 +65,8 @@ export default class Home extends Vue {
     min-height: 16rem;
     text-align: start;
     text-wrap: stable;
-    font-family: 'Senty Pea', 'Senty Tang', 'Senty Cream', 'PingFang SC', "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-family: 'Senty Pea', 'Senty Tang', 'Senty Cream', 'PingFang SC', 'Hiragino Sans GB',
+      'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
     font-size: 18px;
   }
 
@@ -78,7 +85,8 @@ export default class Home extends Vue {
     outline: none;
 
     &:hover {
-      background: hsl(347, 100%, 72%) radial-gradient(circle, transparent 1%, hsl(347, 100%, 72%) 1%) center/15000%;
+      background: hsl(347, 100%, 72%)
+        radial-gradient(circle, transparent 1%, hsl(347, 100%, 72%) 1%) center/15000%;
     }
 
     &:active {
@@ -89,13 +97,29 @@ export default class Home extends Vue {
   }
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   .encodes {
     color: #cdd6f4;
 
     textarea {
       background-color: rgba(255, 255, 255, 0.05);
       color: #cdd6f4;
+    }
+
+    .ripple {
+      background-color: hsl(342, 28%, 21%);
+      box-shadow: 0 0 4px #444;
+
+      &:hover {
+        background: hsl(342, 28%, 21%)
+          radial-gradient(circle, transparent 1%, hsl(342, 28%, 21%) 1%) center/15000%;
+      }
+
+      &:active {
+        background-color: hsl(342, 28%, 31%);
+        background-size: 100%;
+        transition: background 0s;
+      }
     }
   }
 }
