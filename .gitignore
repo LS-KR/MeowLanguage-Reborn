@@ -21,6 +21,8 @@ coverage
 .vscode/*
 !.vscode/extensions.json
 .idea
+!.idea/workspace.xml
+.vs/
 *.suo
 *.ntvs*
 *.njsproj
@@ -28,3 +30,8 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Temp files
+*/**/tmp/
+*/**/*.lock
+*/**/.~lock*
