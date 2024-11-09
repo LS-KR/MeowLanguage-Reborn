@@ -1,0 +1,79 @@
+@import './fonts.css';
+
+.markdown {
+  width: calc(100% - 4rem);
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  font-family: 'PingFangSC-Medium', 'PingFang SC', 'Helvetica Neue', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Helvetica, Arial, sans-serif;
+  color: #4c4f69;
+
+  p {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #dc8a78;
+    border-bottom: 1px #dc8a78 solid;
+  }
+
+  h1,
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3,
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  h6 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  a {
+    color: hsl(231deg, 97%, 72%);
+    text-decoration: none;
+
+    &:active {
+      color: hsl(266deg, 85%, 78%);
+      text-decoration: none;
+    }
+  }
+}
+
+[data-theme='dark'] {
+  .markdown {
+    color: #cad3f5;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #f4dbd6;
+    }
+
+    a {
+      color: hsl(232deg, 97%, 85%);
+      text-decoration: none;
+
+      &:active {
+        color: hsl(267deg, 84%, 87%);
+        text-decoration: none;
+      }
+    }
+  }
+}
