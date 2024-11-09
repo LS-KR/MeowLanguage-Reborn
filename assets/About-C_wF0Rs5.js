@@ -1,4 +1,4 @@
-var l=Object.defineProperty;var u=(a,n,e)=>n in a?l(a,n,{enumerable:!0,configurable:!0,writable:!0,value:e}):a[n]=e;var p=(a,n,e)=>u(a,typeof n!="symbol"?n+"":n,e);import{V as c,C as i,_,c as f,o as h}from"./index-CD4Ltv6R.js";const m=`<p>nya. nya~ 喵! 喵呜! 喵？ 喵呜！ 喵喵？ nya！ 喵呜? nya！ <em>(:з」∠)</em></p>
+var l=Object.defineProperty;var u=(a,n,e)=>n in a?l(a,n,{enumerable:!0,configurable:!0,writable:!0,value:e}):a[n]=e;var p=(a,n,e)=>u(a,typeof n!="symbol"?n+"":n,e);import{V as c,C as i,_,c as f,o as h}from"./index-YLWTDL-w.js";const m=`<p>nya. nya~ 喵! 喵呜! 喵？ 喵呜！ 喵喵？ nya！ 喵呜? nya！ <em>(:з」∠)</em></p>
 <p>这是奇奇怪怪的喵语翻译器</p>
 <p>它什么用都没有</p>
 <ul>
