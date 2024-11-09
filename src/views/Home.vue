@@ -1,5 +1,5 @@
 <script lang="ts">
-import { meowEncode } from '@/logic/meow'
+import { meowDecode, meowEncode } from '@/logic/meow'
 import { Component, Vue } from 'vue-facing-decorator'
 
 @Component({})
@@ -8,8 +8,11 @@ export default class Home extends Vue {
   encoded = meowEncode(this.original)
 
   encode() {
-    this.encoded = meowEncode(this.original)
-    console.log(this.original)
+    if (this.original.endsWith('Σ(っ°Д°;)っ') || this.original.endsWith('_(:з」∠)_')) {
+      this.encoded = meowDecode(this.original)
+    } else {
+      this.encoded = meowEncode(this.original)
+    }
   }
 
   copy() {
