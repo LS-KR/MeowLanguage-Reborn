@@ -3,18 +3,18 @@ import { gzip, ungzip } from 'pako'
 type MeowTable = { [key: string]: string }
 
 const meowTable: MeowTable = {
-  '喵喵!': '00000',
-  '喵喵?': '00001',
-  '喵喵~': '00010',
-  '喵喵.': '00011',
+  '!': '00000',
+  '?': '00001',
+  '~': '00010',
+  '.': '00011',
   'nya?': '00100',
   'nya~': '00101',
   'nya!': '00110',
   'nya.': '00111',
-  '喵喵！': '01000',
-  '喵喵？': '01001',
-  '喵喵～': '01010',
-  '喵喵。': '01011',
+  '！': '01000',
+  '？': '01001',
+  '～': '01010',
+  '。': '01011',
   'nya？': '01100',
   'nya～': '01101',
   'nya！': '01110',
@@ -69,12 +69,19 @@ export function meowDecode(cat: string): string {
   }
 
   const compressed = cat.endsWith('Σ(っ°Д°;)っ')
-  let meowSequence = cat.slice(0, compressed ? -10 : -9) // Remove ending emoticon
+  let meowSequence = cat.slice(0, compressed ? -9 : -8) // Remove ending emoticon
 
   let binary = ''
+  let tempMeow = ''
 
-  for (const meow of meowSequence.split(' ')) {
-    binary += meowTable[meow]
+  meowSequence = meowSequence.split(' ').join('')
+
+  for (const meow of meowSequence.split('')) {
+    tempMeow += meow
+    if (meowTable[tempMeow]) {
+      binary += meowTable[tempMeow]
+      tempMeow = ''
+    }
   }
 
   return binaryToText(binary, compressed)
@@ -86,7 +93,7 @@ function binaryToMeow(binary: string): string {
 
   for (let i = 0; i < binary.length; i += meowLength) {
     const chunk = binary.slice(i, i + meowLength)
-    meow += reverseMeowTable[chunk] + ' '
+    meow += reverseMeowTable[chunk]
   }
 
   return meow
