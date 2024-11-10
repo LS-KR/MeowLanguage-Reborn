@@ -126,4 +126,19 @@ export default class Home extends Vue {
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .encodes {
+    width: calc(100% - 2rem);
+    padding: 2rem 0.5rem;
+
+    textarea {
+      width: calc(100% - 1rem);
+    }
+
+    p {
+      width: calc(100% - 1rem);
+    }
+  }
+}
 </style>
