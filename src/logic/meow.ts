@@ -75,6 +75,7 @@ export function meowDecode(cat: string): string {
   let tempMeow = ''
 
   meowSequence = meowSequence.split(' ').join('')
+  meowSequence = meowSequence.replace('喵喵', '')
 
   for (const meow of meowSequence.split('')) {
     tempMeow += meow
