@@ -62,7 +62,8 @@ export function meowEncode(cat: string, zipcat: boolean = true): string {
 }
 
 export function meowDecode(cat: string): string {
-  cat = cat.replace('nia', 'nya')
+  cat = cat.replaceAll('nia', 'nya')
+  cat = cat.replaceAll('喵喵', '')
 
   if (!cat.endsWith('_(:з」∠)_') && !cat.endsWith('Σ(っ°Д°;)っ')) {
     throw new Error('Invalid meow encoding')
@@ -75,7 +76,6 @@ export function meowDecode(cat: string): string {
   let tempMeow = ''
 
   meowSequence = meowSequence.split(' ').join('')
-  meowSequence = meowSequence.replace('喵喵', '')
 
   for (const meow of meowSequence.split('')) {
     tempMeow += meow
