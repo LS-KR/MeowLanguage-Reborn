@@ -24,14 +24,14 @@ export default class Home extends Vue {
   }
 
   focusIn() {
-    this.labelStyle = `top: 0.25rem; background: ${getTheme() != 'dark' ? '#eff1f5' : '#1e1e2e'}; color: #ff9ca8;`
+    this.labelStyle = `transform: translateY(-1.75rem); background: ${getTheme() != 'dark' ? '#eff1f5' : '#1e1e2e'}; color: #ff9ca8;`
   }
 
   focusOut() {
     if (this.original.length < 1) {
       this.labelStyle = ''
     } else {
-      this.labelStyle = `top: 0.25rem; background: ${getTheme() != 'dark' ? '#eff1f5' : '#1e1e2e'};`
+      this.labelStyle = `transform: translateY(-1.75rem); background: ${getTheme() != 'dark' ? '#eff1f5' : '#1e1e2e'};`
     }
   }
 }
@@ -172,11 +172,16 @@ export default class Home extends Vue {
 
 @media screen and (max-width: 600px) {
   .encodes {
-    width: calc(100% - 2rem);
-    padding: 2rem 0.5rem;
+    width: calc(100% - 1rem);
+    padding: 2rem 0;
 
     textarea {
       width: calc(100% - 1rem);
+    }
+
+    .meow-label {
+      top: 3rem;
+      left: 1rem;
     }
 
     p {
