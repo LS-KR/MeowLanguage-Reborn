@@ -104,7 +104,7 @@ export default class Home extends Vue {
   }
 
   p {
-    width: calc(100% - 4rem);
+    width: calc(100% - 2rem);
     min-height: 16rem;
     text-align: start;
     text-wrap: stable;
