@@ -1,11 +1,13 @@
 <script lang="ts">
 import { meowDecode, meowEncode } from '@/logic/meow'
 import { Component, Vue } from 'vue-facing-decorator'
+import { getTheme } from '@/logic/theme'
 
 @Component({})
 export default class Home extends Vue {
   original = ''
   encoded = '什么都没有呢喵~'
+  labelStyle = ''
 
   encode() {
     if (this.original.length < 1) {
@@ -20,6 +22,18 @@ export default class Home extends Vue {
   copy() {
     navigator.clipboard.writeText(this.encoded)
   }
+
+  focusIn() {
+    this.labelStyle = `top: 0.25rem; background: ${getTheme() != 'dark' ? '#eff1f5' : '#1e1e2e'}; color: #ff9ca8;`
+  }
+
+  focusOut() {
+    if (this.original.length < 1) {
+      this.labelStyle = ''
+    } else {
+      this.labelStyle = `top: 0.25rem; background: ${getTheme() != 'dark' ? '#eff1f5' : '#1e1e2e'};`
+    }
+  }
 }
 </script>
 
@@ -30,8 +44,12 @@ export default class Home extends Vue {
       v-on:change="encode()"
       v-on:keydown="encode()"
       v-on:keyup="encode()"
-      placeholder="猫咪要填写在这里~"
+      v-on:focusin="focusIn()"
+      v-on:focusout="focusOut()"
     ></textarea>
+    <label class="meow-label" v-bind:style="labelStyle">
+      猫咪要填写在这里
+    </label>
     <p>{{ encoded }}</p>
     <button class="ripple" v-on:click="copy()">复制</button>
   </div>
@@ -50,6 +68,7 @@ export default class Home extends Vue {
   align-items: center;
   gap: 2rem;
   color: #4c4f69;
+  position: relative;
 
   textarea {
     width: calc(100% - 4rem);
@@ -60,7 +79,7 @@ export default class Home extends Vue {
     background-color: transparent;
     border-radius: 1rem;
     padding: 1rem 1rem;
-    font-family: 'Maple Mono', 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+    font-family: 'Maple Mono', 'JetBrains Mono', 'Consolas', 'Courier New', 'PingFang SC', monospace;
     font-size: 16px;
     border: #7e7e7e80 1.5px solid;
     transition: all 0.1s ease-in-out;
@@ -71,8 +90,17 @@ export default class Home extends Vue {
 
     &:focus {
       border: #ff9ca8 solid 1.5px;
-      outline: #ff9ca8 solid 1.5px;
+      outline: #ff9ca8 solid 0.5px;
     }
+  }
+
+  .meow-label {
+    position: absolute;
+    transition: all 0.25s ease-in-out;
+    left: 2.5rem;
+    top: 2rem;
+    color: #7e7e7e80;
+    padding: 0 0.5rem;
   }
 
   p {
@@ -117,8 +145,11 @@ export default class Home extends Vue {
     color: #cdd6f4;
 
     textarea {
-      background-color: rgba(255, 255, 255, 0.05);
       color: #cdd6f4;
+    }
+
+    .meow-label {
+      color: #cdd6f480;
     }
 
     .ripple {
