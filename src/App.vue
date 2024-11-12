@@ -3,8 +3,9 @@ import ThemeButton from '@/components/ThemeButton.vue'
 import { meowDecode, meowEncode } from '@/logic/meow'
 import { Component, Vue } from 'vue-facing-decorator'
 import { RouterLink, RouterView } from 'vue-router'
+import { Icon } from '@iconify/vue'
 
-@Component({ components: { RouterLink, RouterView, ThemeButton } })
+@Component({ components: { RouterLink, RouterView, ThemeButton, Icon } })
 export default class App extends Vue {
   created() {
     ;(async function () {
@@ -29,10 +30,15 @@ export default class App extends Vue {
       </div>
       <div class="nav-links">
         <router-link to="/" class="nav-link">喵语翻译器</router-link>
-        <router-link to="/about" class="nav-link">关于</router-link>
+        <router-link to="/about" class="nav-link">
+          <Icon icon="mynaui:info-circle-solid" class="nav-icon" />
+        </router-link>
       </div>
     </div>
     <div class="nav-right">
+      <a class="nav-link" href="https://github.com/LS-KR/MeowLanguage-Reborn">
+        <Icon class="nav-icon" icon="prime:github" style="width: 2rem; height: 2rem; margin-top: -5px;" />
+      </a>
       <div class="theme-button">
         <ThemeButton />
       </div>
@@ -56,16 +62,19 @@ body {
 #app {
   font-family: 'PingFangSC-Medium', 'PingFang SC', 'Helvetica Neue', 'Hiragino Sans GB',
     'Microsoft YaHei', '微软雅黑', Helvetica, Arial, sans-serif;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .nav {
   position: fixed;
   width: 100vw;
-  height: 50px;
+  height: 64px;
   left: 0;
   top: 0;
-  background: hsl(347, 100%, 72%);
-  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.89));
+  background: #ff9ca8ff;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -107,6 +116,7 @@ body {
         text-decoration: none;
         position: relative;
         transition: all 0.3s linear;
+        font-size: 1.4rem;
 
         &:before {
           content: '';
@@ -125,7 +135,7 @@ body {
         }
 
         &:hover {
-          color: bisque;
+          color: whitesmoke;
           text-decoration: none;
 
           &:before {
@@ -134,8 +144,9 @@ body {
         }
 
         &.router-link-exact-active {
-          color: antiquewhite;
+          color: aliceblue;
         }
+
       }
     }
   }
@@ -146,6 +157,22 @@ body {
     align-items: center;
     height: 100%;
     padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .nav-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    font-size: 1.6rem;
+  }
+
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s linear;
+    font-size: 1.4rem;
   }
 }
 

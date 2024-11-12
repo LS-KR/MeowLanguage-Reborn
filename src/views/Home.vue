@@ -5,10 +5,12 @@ import { Component, Vue } from 'vue-facing-decorator'
 @Component({})
 export default class Home extends Vue {
   original = ''
-  encoded = meowEncode(this.original)
+  encoded = '什么都没有呢喵~'
 
   encode() {
-    if (this.original.endsWith('Σ(っ°Д°;)っ') || this.original.endsWith('_(:з」∠)_')) {
+    if (this.original.length < 1) {
+      this.encoded = '什么都没有呢喵~'
+    } else if (this.original.endsWith('Σ(っ°Д°;)っ') || this.original.endsWith('_(:з」∠)_')) {
       this.encoded = meowDecode(this.original)
     } else {
       this.encoded = meowEncode(this.original)
@@ -28,7 +30,7 @@ export default class Home extends Vue {
       v-on:change="encode()"
       v-on:keydown="encode()"
       v-on:keyup="encode()"
-      placeholder="Type something..."
+      placeholder="猫咪要填写在这里~"
     ></textarea>
     <p>{{ encoded }}</p>
     <button class="ripple" v-on:click="copy()">复制</button>
@@ -39,9 +41,9 @@ export default class Home extends Vue {
 @import '@/css/fonts.css';
 
 .encodes {
-  width: calc(100% - 4rem);
+  width: calc(100% - 2rem);
   height: 100%;
-  padding: 2rem 2rem 2rem 2rem;
+  padding: 1rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,14 +55,24 @@ export default class Home extends Vue {
     width: calc(100% - 4rem);
     height: 16rem;
     resize: none;
-    border: none;
     outline: none;
     margin: auto;
-    background-color: rgba(18, 18, 28, 0.05);
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border-radius: 1rem;
+    padding: 1rem 1rem;
     font-family: 'Maple Mono', 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
     font-size: 16px;
+    border: #7e7e7e80 1.5px solid;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      border: #7e7e7e solid 1.5px;
+    }
+
+    &:focus {
+      border: #ff9ca8 solid 1.5px;
+      outline: #ff9ca8 solid 1.5px;
+    }
   }
 
   p {
@@ -83,13 +95,13 @@ export default class Home extends Vue {
     text-transform: uppercase;
     cursor: pointer;
     color: white;
-    background-color: hsl(347, 100%, 72%);
+    background-color: #ff9ca8ff;
     box-shadow: 0 0 4px #999;
     outline: none;
 
     &:hover {
-      background: hsl(347, 100%, 72%)
-        radial-gradient(circle, transparent 1%, hsl(347, 100%, 72%) 1%) center/15000%;
+      background: #ff9ca8ff
+        radial-gradient(circle, transparent 1%, #ff9ca8ff 1%) center/15000%;
     }
 
     &:active {
