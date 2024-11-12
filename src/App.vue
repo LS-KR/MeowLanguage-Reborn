@@ -30,14 +30,14 @@ export default class App extends Vue {
       </div>
       <div class="nav-links">
         <router-link to="/" class="nav-link">喵语翻译器</router-link>
-        <router-link to="/about" class="nav-link">
-          <Icon icon="mynaui:info-circle-solid" class="nav-icon" />
-        </router-link>
       </div>
     </div>
     <div class="nav-right">
+      <router-link to="/about" class="nav-link">
+        <Icon icon="mynaui:info-circle-solid" class="nav-icon" />
+      </router-link>
       <a class="nav-link" href="https://github.com/LS-KR/MeowLanguage-Reborn">
-        <Icon class="nav-icon" icon="prime:github" style="width: 2rem; height: 2rem; margin-top: -5px;" />
+        <Icon class="nav-icon" icon="prime:github" style="width: 2rem; height: 2rem; margin-top: -2px;" />
       </a>
       <div class="theme-button">
         <ThemeButton />
@@ -110,44 +110,6 @@ body {
       padding: 0;
       margin: 0;
       gap: 1rem;
-
-      a {
-        color: white;
-        text-decoration: none;
-        position: relative;
-        transition: all 0.3s linear;
-        font-size: 1.4rem;
-
-        &:before {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          background: white;
-          transition: all 0.4s linear;
-          transform: scaleX(0);
-          transform-origin: top left;
-        }
-
-        &:active {
-          text-decoration: none;
-        }
-
-        &:hover {
-          color: whitesmoke;
-          text-decoration: none;
-
-          &:before {
-            transform: scaleX(1);
-          }
-        }
-
-        &.router-link-exact-active {
-          color: aliceblue;
-        }
-
-      }
     }
   }
 
@@ -165,6 +127,44 @@ body {
     height: 1.6rem;
     vertical-align: middle;
     font-size: 1.6rem;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s linear;
+    font-size: 1.4rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      transition: all 0.4s linear;
+      transform: scaleX(0);
+      transform-origin: top left;
+    }
+
+    &:active {
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: whitesmoke;
+      text-decoration: none;
+
+      &:before {
+        transform: scaleX(1);
+      }
+    }
+
+    &.router-link-exact-active {
+      color: aliceblue;
+    }
+
   }
 
   .nav-link {
