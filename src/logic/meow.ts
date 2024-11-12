@@ -108,7 +108,9 @@ function binaryToText(binary: string, compressed: boolean): string {
     byteArray[i / 8] = parseInt(binary.slice(i, i + 8), 2)
   }
 
-  let result = compressed ? decompressMeowData(byteArray.slice(1, byteArray.length)) : byteArray.slice(1, byteArray.length)
+  let result = compressed
+    ? decompressMeowData(byteArray.slice(1, byteArray.length))
+    : byteArray.slice(1, byteArray.length)
   return new TextDecoder().decode(result)
 }
 

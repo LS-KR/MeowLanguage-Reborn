@@ -37,7 +37,11 @@ export default class App extends Vue {
         <Icon icon="mynaui:info-circle-solid" class="nav-icon" />
       </router-link>
       <a class="nav-link" href="https://github.com/LS-KR/MeowLanguage-Reborn">
-        <Icon class="nav-icon" icon="prime:github" style="width: 2rem; height: 2rem; margin-top: -2px;" />
+        <Icon
+          class="nav-icon"
+          icon="prime:github"
+          style="width: 2rem; height: 2rem; margin-top: -2px"
+        />
       </a>
       <div class="theme-button">
         <ThemeButton />
@@ -164,7 +168,6 @@ body {
     &.router-link-exact-active {
       color: aliceblue;
     }
-
   }
 
   .nav-link {

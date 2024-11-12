@@ -47,9 +47,7 @@ export default class Home extends Vue {
       v-on:focusin="focusIn()"
       v-on:focusout="focusOut()"
     ></textarea>
-    <label class="meow-label" v-bind:style="labelStyle">
-      猫咪要填写在这里
-    </label>
+    <label class="meow-label" v-bind:style="labelStyle"> 猫咪要填写在这里 </label>
     <p>{{ encoded }}</p>
     <button class="ripple" v-on:click="copy()">复制</button>
   </div>
@@ -128,8 +126,7 @@ export default class Home extends Vue {
     outline: none;
 
     &:hover {
-      background: #ff9ca8ff
-        radial-gradient(circle, transparent 1%, #ff9ca8ff 1%) center/15000%;
+      background: #ff9ca8ff radial-gradient(circle, transparent 1%, #ff9ca8ff 1%) center/15000%;
     }
 
     &:active {
