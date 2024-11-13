@@ -4,6 +4,7 @@ import { meowDecode, meowEncode } from '@/logic/meow'
 import { Component, Vue } from 'vue-facing-decorator'
 import { RouterLink, RouterView } from 'vue-router'
 import { Icon } from '@iconify/vue'
+import { applyTheme } from '@/logic/theme'
 
 @Component({ components: { RouterLink, RouterView, ThemeButton, Icon } })
 export default class App extends Vue {
@@ -18,6 +19,7 @@ export default class App extends Vue {
       const decoded = meowDecode(encoded)
       console.log('Decoded:', decoded)
     })()
+    applyTheme()
   }
 }
 </script>
